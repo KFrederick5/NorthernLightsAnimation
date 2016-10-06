@@ -43,13 +43,14 @@ public class AnimationActivity extends AppCompatActivity {
 
     public void rotateButton(View view)
     {
-        rotateAnim = AnimationUtils.loadAnimation(this, R.anim.rotate_anim);
-        if(rotateAnim.hasStarted() && rotateAnim != null) {
+
+        if(rotateAnim != null && rotateAnim.hasStarted()) {
             lightsImageView.clearAnimation();
             activity_animation.clearAnimation();
             rotateAnim = null;
         }
         else {
+            rotateAnim = AnimationUtils.loadAnimation(this, R.anim.rotate_anim);
             lightsImageView.startAnimation(rotateAnim);
             activity_animation.startAnimation(rotateAnim);
         }
@@ -58,23 +59,27 @@ public class AnimationActivity extends AppCompatActivity {
 
     public void shakeButton(View view)
     {
-        shakeAnim = AnimationUtils.loadAnimation(this, R.anim.shake_anim);
-        if(shakeAnim.hasStarted() && rotateAnim != null) {
+
+        if(rotateAnim != null && shakeAnim.hasStarted()) {
             lightsImageView.clearAnimation();
             shakeAnim = null;
         }
         else
+        {
+            shakeAnim = AnimationUtils.loadAnimation(this, R.anim.shake_anim);
             lightsImageView.startAnimation(shakeAnim);
+        }
     }
 
     public void pulseButton(View view)
     {
-        pulseAnim = AnimationUtils.loadAnimation(this, R.anim.pulse_anim);
-        if(pulseAnim.hasStarted() && pulseAnim != null){
+
+        if(pulseAnim != null && pulseAnim.hasStarted()){
             lightsImageView.clearAnimation();
             pulseAnim = null;
         }
         else {
+            pulseAnim = AnimationUtils.loadAnimation(this, R.anim.pulse_anim);
             lightsImageView.startAnimation(pulseAnim);
         }
     }
